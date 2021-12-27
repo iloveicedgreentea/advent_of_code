@@ -1,20 +1,22 @@
 package common
 
 import (
-	log "github.com/sirupsen/logrus"
-	"os"
 	"bufio"
+	"os"
 	"strconv"
+
+	log "github.com/sirupsen/logrus"
 )
 
-// checks an error 
+// checks an error
 func CheckErr(e error) {
 	if e != nil {
 		log.Fatal(e)
 	}
 }
 
-func ReadFile(fileName string) ([]string) {
+// Read a file and return []string
+func ReadFile(fileName string) []string {
 	dataFile, err := os.Open(fileName)
 	CheckErr(err)
 
@@ -25,7 +27,7 @@ func ReadFile(fileName string) ([]string) {
 
 	// store the lines as string
 	var lines []string
-	
+
 	// for each line, read and add it to string array
 	for scanner.Scan() {
 		lines = append(lines, scanner.Text())
@@ -34,7 +36,8 @@ func ReadFile(fileName string) ([]string) {
 	return lines
 }
 
-func ReadFileInt(fileName string) ([]int) {
+// Read a file and return []int
+func ReadFileInt(fileName string) []int {
 	dataFile, err := os.Open(fileName)
 	CheckErr(err)
 
