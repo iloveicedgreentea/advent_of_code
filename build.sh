@@ -2,4 +2,5 @@
 
 module=$1
 
-go build -o "/bin/$module"
+cd "$(pwd)/$(dirname "$0")/${module}" 
+go build -o "bin" 
