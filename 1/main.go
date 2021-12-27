@@ -1,40 +1,15 @@
 package main
 
 import (
-	"bufio"
 	"fmt"
-	"os"
-	"strconv"
-
-	log "github.com/sirupsen/logrus"
+	"github.com/iloveicedgreentea/advent_of_code/common"
 )
 
 func main() {
-	dataFile, err := os.Open("input.txt")
-	checkErr(err)
-
-	defer dataFile.Close()
-
-	// create scanner to read file
-	scanner := bufio.NewScanner(dataFile)
-
-	// store the lines as int
-	var lines []int
-	// for each line, read and add it to int array
-	for scanner.Scan() {
-		convLine, err := strconv.Atoi(scanner.Text())
-		checkErr(err)
-		lines = append(lines, convLine)
-	}
+	lines := common.ReadFileInt("input.txt")
 
 	answer1(lines)
 	answer2(lines)
-}
-
-func checkErr(e error) {
-	if e != nil {
-		log.Fatal(e)
-	}
 }
 
 func answer1(lines []int) {
