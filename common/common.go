@@ -15,6 +15,7 @@ func CheckErr(e error) {
 	}
 }
 
+// RemoveFromArrayStr safely removes an element
 func RemoveFromArrayStr(s []string, index int) []string {
 	ret := make([]string, 0)
 	// up to but excluding index
@@ -24,6 +25,7 @@ func RemoveFromArrayStr(s []string, index int) []string {
 	return append(ret, s[index+1:]...)
 }
 
+// RemoveFromArrayInt safely removes an element
 func RemoveFromArrayInt(s []int, index int) []int {
 	ret := make([]int, 0)
 	// up to but excluding index
