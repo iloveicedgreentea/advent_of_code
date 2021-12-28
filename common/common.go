@@ -15,6 +15,24 @@ func CheckErr(e error) {
 	}
 }
 
+func RemoveFromArrayStr(s []string, index int) []string {
+	ret := make([]string, 0)
+	// up to but excluding index
+	ret = append(ret, s[:index]...)
+
+	// return starting from and including index+1
+	return append(ret, s[index+1:]...)
+}
+
+func RemoveFromArrayInt(s []int, index int) []int {
+	ret := make([]int, 0)
+	// up to but excluding index
+	ret = append(ret, s[:index]...)
+
+	// return starting from and including index+1
+	return append(ret, s[index+1:]...)
+}
+
 // Read a file and return []string
 func ReadFile(fileName string) []string {
 	dataFile, err := os.Open(fileName)
