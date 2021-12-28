@@ -12,6 +12,7 @@ func TestRemoveFromArrayStr(t *testing.T) {
 	newS := RemoveFromArrayStr(s, 2)
 	assert.Equal(t, newS, s2, "Should remove 3rd element")
 }
+
 func TestRemoveFromArrayInt(t *testing.T) {
 	s := []int{1,2,3}
 	s2 := []int{1,2}
